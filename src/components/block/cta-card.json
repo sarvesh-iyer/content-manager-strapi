@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_block_cta_cards",
+  "info": {
+    "displayName": "CTA Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "List": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.list-items"
+    },
+    "Buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.button"
+    }
+  }
+}
