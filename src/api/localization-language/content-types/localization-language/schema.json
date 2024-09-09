@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "localization_languages",
+  "info": {
+    "singularName": "localization-language",
+    "pluralName": "localization-languages",
+    "displayName": "Localization language",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "languages": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.language"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_element_languages",
+  "info": {
+    "displayName": "Language",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "lang_code": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    }
+  }
+}

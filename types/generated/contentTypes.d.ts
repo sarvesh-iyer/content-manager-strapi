@@ -920,12 +920,15 @@ export interface ApiHeaderHeader extends Schema.SingleType {
     singularName: 'header';
     pluralName: 'headers';
     displayName: 'Header';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    header: Attribute.String;
+    Logo: Attribute.Media<'images'>;
+    Buttons: Attribute.Component<'element.button', true>;
+    nav_links: Attribute.Component<'element.link', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -937,6 +940,71 @@ export interface ApiHeaderHeader extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLocalizationLanguageLocalizationLanguage
+  extends Schema.SingleType {
+  collectionName: 'localization_languages';
+  info: {
+    singularName: 'localization-language';
+    pluralName: 'localization-languages';
+    displayName: 'Localization language';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    languages: Attribute.Component<'element.language', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::localization-language.localization-language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::localization-language.localization-language',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTechnologyPageTechnologyPage extends Schema.SingleType {
+  collectionName: 'technology_pages';
+  info: {
+    singularName: 'technology-page';
+    pluralName: 'technology-pages';
+    displayName: 'Technology page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Attribute.DynamicZone<
+      ['block.content-with-image', 'block.benefits', 'block.cta-card']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::technology-page.technology-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::technology-page.technology-page',
       'oneToOne',
       'admin::user'
     > &
@@ -965,6 +1033,8 @@ declare module '@strapi/types' {
       'api::features-page.features-page': ApiFeaturesPageFeaturesPage;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
+      'api::localization-language.localization-language': ApiLocalizationLanguageLocalizationLanguage;
+      'api::technology-page.technology-page': ApiTechnologyPageTechnologyPage;
     }
   }
 }
