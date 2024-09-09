@@ -7,8 +7,8 @@ export interface ElementListItems extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.String;
-    description: Attribute.Text;
+    title: Attribute.String;
+    content: Attribute.Text;
   };
 }
 
@@ -25,10 +25,23 @@ export interface ElementLink extends Schema.Component {
   };
 }
 
+export interface ElementLanguage extends Schema.Component {
+  collectionName: 'components_element_languages';
+  info: {
+    displayName: 'Language';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    lang_code: Attribute.String;
+    display_name: Attribute.String;
+  };
+}
+
 export interface ElementFeatureCard extends Schema.Component {
   collectionName: 'components_element_feature_cards';
   info: {
-    displayName: 'Feature-card';
+    displayName: 'card';
     description: '';
   };
   attributes: {
@@ -89,6 +102,18 @@ export interface BlockContentWithImage extends Schema.Component {
     Image: Attribute.Media<'images'>;
     List: Attribute.Component<'element.list-items', true>;
     color: Attribute.String;
+    variant: Attribute.Enumeration<['option1', 'option2']>;
+  };
+}
+
+export interface BlockBenefits extends Schema.Component {
+  collectionName: 'components_block_benefits';
+  info: {
+    displayName: 'Benefits';
+  };
+  attributes: {
+    heading: Attribute.String;
+    cards: Attribute.Component<'element.feature-card', true>;
   };
 }
 
@@ -97,11 +122,13 @@ declare module '@strapi/types' {
     export interface Components {
       'element.list-items': ElementListItems;
       'element.link': ElementLink;
+      'element.language': ElementLanguage;
       'element.feature-card': ElementFeatureCard;
       'element.button': ElementButton;
       'block.feature-hero': BlockFeatureHero;
       'block.cta-card': BlockCtaCard;
       'block.content-with-image': BlockContentWithImage;
+      'block.benefits': BlockBenefits;
     }
   }
 }

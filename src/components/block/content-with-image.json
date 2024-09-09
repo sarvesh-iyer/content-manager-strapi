@@ -27,6 +27,13 @@
     },
     "color": {
       "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "option1",
+        "option2"
+      ]
     }
   }
 }
