@@ -22,6 +22,7 @@ export interface ElementLink extends Schema.Component {
     label: Attribute.String;
     link: Attribute.String & Attribute.Required;
     icon: Attribute.Media<'images'>;
+    submenu: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -49,6 +50,7 @@ export interface ElementFeatureCard extends Schema.Component {
     Context: Attribute.String;
     Description: Attribute.Text;
     Image: Attribute.Media<'images'>;
+    color: Attribute.String;
   };
 }
 
@@ -110,6 +112,7 @@ export interface BlockBenefits extends Schema.Component {
   collectionName: 'components_block_benefits';
   info: {
     displayName: 'Benefits';
+    description: '';
   };
   attributes: {
     heading: Attribute.String;

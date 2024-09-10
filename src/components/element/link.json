@@ -21,6 +21,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "submenu": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

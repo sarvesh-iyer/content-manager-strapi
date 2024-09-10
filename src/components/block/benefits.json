@@ -1,7 +1,8 @@
 {
   "collectionName": "components_block_benefits",
   "info": {
-    "displayName": "Benefits"
+    "displayName": "Benefits",
+    "description": ""
   },
   "options": {},
   "attributes": {
