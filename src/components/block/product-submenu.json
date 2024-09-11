@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_block_product_submenus",
+  "info": {
+    "displayName": "product-submenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "right_heading": {
+      "type": "string"
+    },
+    "left_heading": {
+      "type": "string"
+    },
+    "feature_cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.feature-card"
+    },
+    "right_subheading": {
+      "type": "string"
+    },
+    "right_description": {
+      "type": "text"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "element.link"
+    }
+  }
+}

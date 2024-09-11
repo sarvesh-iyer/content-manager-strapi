@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_submenus",
+  "info": {
+    "singularName": "site-submenu",
+    "pluralName": "site-submenus",
+    "displayName": "Site-submenu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "product": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "block.product-submenu"
+    },
+    "solutions": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "block.solutions-submenu"
+    }
+  }
+}

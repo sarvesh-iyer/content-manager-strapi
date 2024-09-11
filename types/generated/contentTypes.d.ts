@@ -793,7 +793,7 @@ export interface ApiFeaturesPageFeaturesPage extends Schema.CollectionType {
   info: {
     singularName: 'features-page';
     pluralName: 'features-pages';
-    displayName: 'Features Page';
+    displayName: 'Feature Page';
     description: '';
   };
   options: {
@@ -806,8 +806,14 @@ export interface ApiFeaturesPageFeaturesPage extends Schema.CollectionType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      ['block.feature-hero', 'block.content-with-image', 'block.cta-card']
+      ['block.content-with-image', 'block.cta-card', 'block.platform-hero']
     > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    page_name: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -925,10 +931,30 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    Logo: Attribute.Media<'images'>;
-    Buttons: Attribute.Component<'element.button', true>;
-    nav_links: Attribute.Component<'element.link', true>;
+    Logo: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Buttons: Attribute.Component<'element.button', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    nav_links: Attribute.Component<'element.link', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -944,6 +970,12 @@ export interface ApiHeaderHeader extends Schema.SingleType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::header.header',
+      'oneToMany',
+      'api::header.header'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -976,6 +1008,59 @@ export interface ApiLocalizationLanguageLocalizationLanguage
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiSiteSubmenuSiteSubmenu extends Schema.SingleType {
+  collectionName: 'site_submenus';
+  info: {
+    singularName: 'site-submenu';
+    pluralName: 'site-submenus';
+    displayName: 'Site-submenu';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    product: Attribute.Component<'block.product-submenu'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    solutions: Attribute.Component<'block.solutions-submenu', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::site-submenu.site-submenu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::site-submenu.site-submenu',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::site-submenu.site-submenu',
+      'oneToMany',
+      'api::site-submenu.site-submenu'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1034,6 +1119,7 @@ declare module '@strapi/types' {
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::localization-language.localization-language': ApiLocalizationLanguageLocalizationLanguage;
+      'api::site-submenu.site-submenu': ApiSiteSubmenuSiteSubmenu;
       'api::technology-page.technology-page': ApiTechnologyPageTechnologyPage;
     }
   }

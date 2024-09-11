@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_block_benefits",
+  "collectionName": "components_block_solutions_submenus",
   "info": {
-    "displayName": "Benefits",
+    "displayName": "solutions-submenu",
     "description": ""
   },
   "options": {},
@@ -9,10 +9,10 @@
     "heading": {
       "type": "string"
     },
-    "cards": {
+    "menu": {
       "type": "component",
       "repeatable": true,
-      "component": "element.feature-card"
+      "component": "element.link"
     }
   }
 }
