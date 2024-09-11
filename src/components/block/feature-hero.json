@@ -1,19 +1,12 @@
 {
   "collectionName": "components_block_feature_heroes",
   "info": {
-    "displayName": "Feature-hero",
-    "icon": "",
-    "description": ""
+    "displayName": "Feature-hero"
   },
   "options": {},
   "attributes": {
     "Heading": {
       "type": "string"
-    },
-    "Card": {
-      "type": "component",
-      "repeatable": true,
-      "component": "element.feature-card"
     }
   }
 }

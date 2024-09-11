@@ -4,7 +4,7 @@
   "info": {
     "singularName": "features-page",
     "pluralName": "features-pages",
-    "displayName": "Features Page",
+    "displayName": "Feature Page",
     "description": ""
   },
   "options": {
@@ -24,10 +24,18 @@
       },
       "type": "dynamiczone",
       "components": [
-        "block.feature-hero",
         "block.content-with-image",
-        "block.cta-card"
+        "block.cta-card",
+        "block.platform-hero"
       ]
+    },
+    "page_name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

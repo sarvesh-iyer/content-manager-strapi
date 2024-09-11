@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_block_cta_cards",
+  "collectionName": "components_block_platform_heroes",
   "info": {
-    "displayName": "CTA Card",
+    "displayName": "Platform-hero",
     "description": ""
   },
   "options": {},
@@ -9,18 +9,18 @@
     "Heading": {
       "type": "string"
     },
-    "List": {
-      "type": "component",
-      "repeatable": true,
-      "component": "element.list-items"
+    "description": {
+      "type": "text"
     },
     "Buttons": {
       "type": "component",
       "repeatable": true,
       "component": "element.button"
     },
-    "Description": {
-      "type": "text"
+    "Card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.feature-card"
     }
   }
 }

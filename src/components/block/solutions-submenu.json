@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_solutions_submenus",
+  "info": {
+    "displayName": "solutions-submenu",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.link"
+    }
+  }
+}
