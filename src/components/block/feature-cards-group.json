@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_block_feature_cards_groups",
+  "info": {
+    "displayName": "Feature cards group"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "Cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.image-with-button-card"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "option1",
+        "option2"
+      ]
+    }
+  }
+}

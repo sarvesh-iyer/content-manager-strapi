@@ -806,7 +806,12 @@ export interface ApiFeaturesPageFeaturesPage extends Schema.CollectionType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      ['block.content-with-image', 'block.cta-card', 'block.platform-hero']
+      [
+        'block.cta-card',
+        'block.platform-hero',
+        'block.content-with-image',
+        'block.feature-cards-group'
+      ]
     > &
       Attribute.SetPluginOptions<{
         i18n: {
