@@ -24,6 +24,7 @@ export interface ElementLink extends Schema.Component {
     link: Attribute.String & Attribute.Required;
     icon: Attribute.Media<'images'>;
     submenu: Attribute.Boolean & Attribute.DefaultTo<false>;
+    name: Attribute.String;
   };
 }
 

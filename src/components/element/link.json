@@ -25,6 +25,9 @@
     "submenu": {
       "type": "boolean",
       "default": false
+    },
+    "name": {
+      "type": "string"
     }
   }
 }
