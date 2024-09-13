@@ -24,9 +24,10 @@
       },
       "type": "dynamiczone",
       "components": [
-        "block.content-with-image",
         "block.cta-card",
-        "block.platform-hero"
+        "block.platform-hero",
+        "block.content-with-image",
+        "block.feature-cards-group"
       ]
     },
     "page_name": {

@@ -40,6 +40,21 @@ export interface ElementLanguage extends Schema.Component {
   };
 }
 
+export interface ElementImageWithButtonCard extends Schema.Component {
+  collectionName: 'components_block_image_with_button_cards';
+  info: {
+    displayName: 'image-with-button-card';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    Image: Attribute.Media<'images'>;
+    Buttons: Attribute.Component<'element.button', true>;
+    color: Attribute.String;
+  };
+}
+
 export interface ElementFeatureCard extends Schema.Component {
   collectionName: 'components_element_feature_cards';
   info: {
@@ -106,17 +121,19 @@ export interface BlockPlatformHero extends Schema.Component {
     Heading: Attribute.String;
     description: Attribute.Text;
     Buttons: Attribute.Component<'element.button', true>;
-    Card: Attribute.Component<'element.feature-card', true>;
+    Cards: Attribute.Component<'element.feature-card', true>;
   };
 }
 
-export interface BlockFeatureHero extends Schema.Component {
-  collectionName: 'components_block_feature_heroes';
+export interface BlockFeatureCardsGroup extends Schema.Component {
+  collectionName: 'components_block_feature_cards_groups';
   info: {
-    displayName: 'Feature-hero';
+    displayName: 'Feature cards group';
   };
   attributes: {
-    Heading: Attribute.String;
+    heading: Attribute.String;
+    Cards: Attribute.Component<'element.image-with-button-card', true>;
+    variant: Attribute.Enumeration<['option1', 'option2']>;
   };
 }
 
@@ -168,12 +185,13 @@ declare module '@strapi/types' {
       'element.list-items': ElementListItems;
       'element.link': ElementLink;
       'element.language': ElementLanguage;
+      'element.image-with-button-card': ElementImageWithButtonCard;
       'element.feature-card': ElementFeatureCard;
       'element.button': ElementButton;
       'block.solutions-submenu': BlockSolutionsSubmenu;
       'block.product-submenu': BlockProductSubmenu;
       'block.platform-hero': BlockPlatformHero;
-      'block.feature-hero': BlockFeatureHero;
+      'block.feature-cards-group': BlockFeatureCardsGroup;
       'block.cta-card': BlockCtaCard;
       'block.content-with-image': BlockContentWithImage;
       'block.benefits': BlockBenefits;

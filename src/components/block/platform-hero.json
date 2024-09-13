@@ -17,7 +17,7 @@
       "repeatable": true,
       "component": "element.button"
     },
-    "Card": {
+    "Cards": {
       "type": "component",
       "repeatable": true,
       "component": "element.feature-card"

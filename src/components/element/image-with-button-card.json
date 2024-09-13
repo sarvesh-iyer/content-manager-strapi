@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_block_image_with_button_cards",
+  "info": {
+    "displayName": "image-with-button-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.button"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}

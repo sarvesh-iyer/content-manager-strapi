@@ -7,11 +7,14 @@
 const populate = {
 	blocks: {
 		populate: {
-			Card: {
+			Cards: {
 				populate: {
 					Image: {
 						fields: ["name", "url", "alternativeText"],
 					},
+					Buttons: {
+						populate: "*"
+					}
 				}
 			},
 			Image: {
@@ -22,7 +25,7 @@ const populate = {
 			},
 			Buttons: {
 				populate: "*"
-			}
+			},
 		},
 	}
 };
