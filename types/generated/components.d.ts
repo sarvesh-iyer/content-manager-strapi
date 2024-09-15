@@ -25,6 +25,7 @@ export interface ElementLink extends Schema.Component {
     icon: Attribute.Media<'images'>;
     submenu: Attribute.Boolean & Attribute.DefaultTo<false>;
     name: Attribute.String;
+    color: Attribute.String;
   };
 }
 
@@ -149,6 +150,7 @@ export interface BlockCtaCard extends Schema.Component {
     List: Attribute.Component<'element.list-items', true>;
     Buttons: Attribute.Component<'element.button', true>;
     Description: Attribute.Text;
+    color: Attribute.String & Attribute.DefaultTo<'primary-bg-shade'>;
   };
 }
 
