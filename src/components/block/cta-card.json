@@ -21,6 +21,10 @@
     },
     "Description": {
       "type": "text"
+    },
+    "color": {
+      "type": "string",
+      "default": "primary-bg-shade"
     }
   }
 }
