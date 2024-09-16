@@ -34,7 +34,13 @@
         "option1",
         "option2",
         "option3"
-      ]
+      ],
+      "default": "option1"
+    },
+    "Buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.button"
     }
   }
 }

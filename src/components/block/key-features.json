@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_block_key_features",
+  "info": {
+    "displayName": "Key-features",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "Buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.button"
+    },
+    "content_with_img": {
+      "type": "component",
+      "repeatable": true,
+      "component": "block.content-with-image"
+    }
+  }
+}

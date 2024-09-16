@@ -984,6 +984,39 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'Home page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Attribute.DynamicZone<
+      ['block.platform-hero', 'block.trusted-companies', 'block.key-features']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLocalizationLanguageLocalizationLanguage
   extends Schema.SingleType {
   collectionName: 'localization_languages';
@@ -1123,6 +1156,7 @@ declare module '@strapi/types' {
       'api::features-page.features-page': ApiFeaturesPageFeaturesPage;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::localization-language.localization-language': ApiLocalizationLanguageLocalizationLanguage;
       'api::site-submenu.site-submenu': ApiSiteSubmenuSiteSubmenu;
       'api::technology-page.technology-page': ApiTechnologyPageTechnologyPage;

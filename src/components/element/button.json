@@ -1,7 +1,8 @@
 {
   "collectionName": "components_element_buttons",
   "info": {
-    "displayName": "Button"
+    "displayName": "Button",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,6 +15,27 @@
     "isPrimary": {
       "type": "boolean",
       "default": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "transparent",
+        "color-btn"
+      ],
+      "default": "primary"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "color": {
+      "type": "string"
     }
   }
 }

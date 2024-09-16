@@ -13,7 +13,11 @@ const populate = {
 						fields: ["name", "url", "alternativeText"],
 					},
 					Buttons: {
-						populate: "*"
+						populate: {
+							icon: {
+								fields: ["name", "url", "alternativeText"],
+							}
+						}
 					}
 				}
 			},
