@@ -22,9 +22,13 @@
     "Description": {
       "type": "text"
     },
-    "color": {
-      "type": "string",
-      "default": "primary-bg-shade"
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "dark",
+        "light"
+      ],
+      "default": "dark"
     }
   }
 }

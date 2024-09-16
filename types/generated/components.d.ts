@@ -77,11 +77,30 @@ export interface ElementButton extends Schema.Component {
   collectionName: 'components_element_buttons';
   info: {
     displayName: 'Button';
+    description: '';
   };
   attributes: {
     label: Attribute.String;
     link: Attribute.String;
     isPrimary: Attribute.Boolean & Attribute.DefaultTo<true>;
+    variant: Attribute.Enumeration<
+      ['primary', 'secondary', 'transparent', 'color-btn']
+    > &
+      Attribute.DefaultTo<'primary'>;
+    icon: Attribute.Media<'images'>;
+    color: Attribute.String;
+  };
+}
+
+export interface BlockTrustedCompanies extends Schema.Component {
+  collectionName: 'components_block_trusted_companies';
+  info: {
+    displayName: 'trusted-companies';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String;
+    companies: Attribute.Component<'element.feature-card', true>;
   };
 }
 
@@ -127,6 +146,20 @@ export interface BlockPlatformHero extends Schema.Component {
   };
 }
 
+export interface BlockKeyFeatures extends Schema.Component {
+  collectionName: 'components_block_key_features';
+  info: {
+    displayName: 'Key-features';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String;
+    description: Attribute.Text;
+    Buttons: Attribute.Component<'element.button', true>;
+    content_with_img: Attribute.Component<'block.content-with-image', true>;
+  };
+}
+
 export interface BlockFeatureCardsGroup extends Schema.Component {
   collectionName: 'components_block_feature_cards_groups';
   info: {
@@ -150,7 +183,8 @@ export interface BlockCtaCard extends Schema.Component {
     List: Attribute.Component<'element.list-items', true>;
     Buttons: Attribute.Component<'element.button', true>;
     Description: Attribute.Text;
-    color: Attribute.String & Attribute.DefaultTo<'primary-bg-shade'>;
+    variant: Attribute.Enumeration<['dark', 'light']> &
+      Attribute.DefaultTo<'dark'>;
   };
 }
 
@@ -166,7 +200,9 @@ export interface BlockContentWithImage extends Schema.Component {
     Image: Attribute.Media<'images'>;
     List: Attribute.Component<'element.list-items', true>;
     color: Attribute.String;
-    variant: Attribute.Enumeration<['option1', 'option2', 'option3']>;
+    variant: Attribute.Enumeration<['option1', 'option2', 'option3']> &
+      Attribute.DefaultTo<'option1'>;
+    Buttons: Attribute.Component<'element.button', true>;
   };
 }
 
@@ -191,9 +227,11 @@ declare module '@strapi/types' {
       'element.image-with-button-card': ElementImageWithButtonCard;
       'element.feature-card': ElementFeatureCard;
       'element.button': ElementButton;
+      'block.trusted-companies': BlockTrustedCompanies;
       'block.solutions-submenu': BlockSolutionsSubmenu;
       'block.product-submenu': BlockProductSubmenu;
       'block.platform-hero': BlockPlatformHero;
+      'block.key-features': BlockKeyFeatures;
       'block.feature-cards-group': BlockFeatureCardsGroup;
       'block.cta-card': BlockCtaCard;
       'block.content-with-image': BlockContentWithImage;

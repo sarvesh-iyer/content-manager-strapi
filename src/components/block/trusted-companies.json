@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_trusted_companies",
+  "info": {
+    "displayName": "trusted-companies",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "companies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.feature-card"
+    }
+  }
+}
