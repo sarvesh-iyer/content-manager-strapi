@@ -17,7 +17,10 @@
       "components": [
         "block.platform-hero",
         "block.trusted-companies",
-        "block.key-features"
+        "block.key-features",
+        "block.content-with-image",
+        "block.cta-card",
+        "block.generic-heading-content"
       ]
     }
   }

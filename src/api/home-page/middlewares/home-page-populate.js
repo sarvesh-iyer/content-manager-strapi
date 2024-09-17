@@ -28,7 +28,30 @@ module.exports = (config, { strapi }) => {
 							},
 							Image: {
 								fields: ["name", "url", "alternativeText"],
+							},
+							Buttons: {
+								populate: "*"
 							}
+						}
+					},
+					List: {
+						populate: "*"
+					},
+					Image: {
+						fields: ["name", "url", "alternativeText"],
+					},
+					Cards: {
+						populate: {
+							Image: {
+								fields: ["name", "url", "alternativeText"],
+							}
+						}
+					},
+					Images: {
+						populate: {
+							Image: {
+								fields: ["name", "url", "alternativeText"],
+							},
 						}
 					}
 				}

@@ -997,7 +997,14 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      ['block.platform-hero', 'block.trusted-companies', 'block.key-features']
+      [
+        'block.platform-hero',
+        'block.trusted-companies',
+        'block.key-features',
+        'block.content-with-image',
+        'block.cta-card',
+        'block.generic-heading-content'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

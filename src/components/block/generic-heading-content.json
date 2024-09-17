@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_block_generic_heading_contents",
+  "info": {
+    "displayName": "generic-heading-content",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "Images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.image-group"
+    },
+    "unique_name": {
+      "type": "string"
+    },
+    "bg_color": {
+      "type": "string"
+    }
+  }
+}

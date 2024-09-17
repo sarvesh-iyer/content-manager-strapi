@@ -57,6 +57,17 @@ export interface ElementImageWithButtonCard extends Schema.Component {
   };
 }
 
+export interface ElementImageGroup extends Schema.Component {
+  collectionName: 'components_element_image_groups';
+  info: {
+    displayName: 'Image';
+    description: '';
+  };
+  attributes: {
+    Image: Attribute.Media<'images'>;
+  };
+}
+
 export interface ElementFeatureCard extends Schema.Component {
   collectionName: 'components_element_feature_cards';
   info: {
@@ -89,6 +100,9 @@ export interface ElementButton extends Schema.Component {
       Attribute.DefaultTo<'primary'>;
     icon: Attribute.Media<'images'>;
     color: Attribute.String;
+    unique_name: Attribute.String;
+    theme: Attribute.Enumeration<['light', 'dark']> &
+      Attribute.DefaultTo<'dark'>;
   };
 }
 
@@ -143,6 +157,8 @@ export interface BlockPlatformHero extends Schema.Component {
     description: Attribute.Text;
     Buttons: Attribute.Component<'element.button', true>;
     Cards: Attribute.Component<'element.feature-card', true>;
+    bg_color: Attribute.String & Attribute.DefaultTo<'primary-bg-shade'>;
+    unique_name: Attribute.String;
   };
 }
 
@@ -157,6 +173,22 @@ export interface BlockKeyFeatures extends Schema.Component {
     description: Attribute.Text;
     Buttons: Attribute.Component<'element.button', true>;
     content_with_img: Attribute.Component<'block.content-with-image', true>;
+  };
+}
+
+export interface BlockGenericHeadingContent extends Schema.Component {
+  collectionName: 'components_block_generic_heading_contents';
+  info: {
+    displayName: 'generic-heading-content';
+    description: '';
+  };
+  attributes: {
+    tag: Attribute.String;
+    heading: Attribute.String;
+    description: Attribute.Text;
+    Images: Attribute.Component<'element.image-group', true>;
+    unique_name: Attribute.String;
+    bg_color: Attribute.String;
   };
 }
 
@@ -203,6 +235,7 @@ export interface BlockContentWithImage extends Schema.Component {
     variant: Attribute.Enumeration<['option1', 'option2', 'option3']> &
       Attribute.DefaultTo<'option1'>;
     Buttons: Attribute.Component<'element.button', true>;
+    unique_name: Attribute.String;
   };
 }
 
@@ -225,6 +258,7 @@ declare module '@strapi/types' {
       'element.link': ElementLink;
       'element.language': ElementLanguage;
       'element.image-with-button-card': ElementImageWithButtonCard;
+      'element.image-group': ElementImageGroup;
       'element.feature-card': ElementFeatureCard;
       'element.button': ElementButton;
       'block.trusted-companies': BlockTrustedCompanies;
@@ -232,6 +266,7 @@ declare module '@strapi/types' {
       'block.product-submenu': BlockProductSubmenu;
       'block.platform-hero': BlockPlatformHero;
       'block.key-features': BlockKeyFeatures;
+      'block.generic-heading-content': BlockGenericHeadingContent;
       'block.feature-cards-group': BlockFeatureCardsGroup;
       'block.cta-card': BlockCtaCard;
       'block.content-with-image': BlockContentWithImage;

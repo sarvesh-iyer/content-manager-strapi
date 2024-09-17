@@ -21,6 +21,13 @@
       "type": "component",
       "repeatable": true,
       "component": "element.feature-card"
+    },
+    "bg_color": {
+      "type": "string",
+      "default": "primary-bg-shade"
+    },
+    "unique_name": {
+      "type": "string"
     }
   }
 }
