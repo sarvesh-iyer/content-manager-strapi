@@ -238,6 +238,8 @@ export interface BlockContentWithImage extends Schema.Component {
       Attribute.DefaultTo<'option1'>;
     Buttons: Attribute.Component<'element.button', true>;
     unique_name: Attribute.String;
+    context: Attribute.Text;
+    bg_color: Attribute.String;
   };
 }
 

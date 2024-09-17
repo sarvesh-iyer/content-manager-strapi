@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "solutions_pages",
+  "info": {
+    "singularName": "solutions-page",
+    "pluralName": "solutions-pages",
+    "displayName": "Solutions page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "block.content-with-image",
+        "block.cta-card"
+      ]
+    }
+  }
+}

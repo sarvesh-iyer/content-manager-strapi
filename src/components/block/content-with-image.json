@@ -44,6 +44,12 @@
     },
     "unique_name": {
       "type": "string"
+    },
+    "context": {
+      "type": "text"
+    },
+    "bg_color": {
+      "type": "string"
     }
   }
 }
