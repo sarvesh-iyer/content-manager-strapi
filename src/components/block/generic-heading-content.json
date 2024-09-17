@@ -25,6 +25,14 @@
     },
     "bg_color": {
       "type": "string"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "dark",
+        "light"
+      ],
+      "default": "dark"
     }
   }
 }

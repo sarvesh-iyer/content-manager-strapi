@@ -1122,7 +1122,12 @@ export interface ApiTechnologyPageTechnologyPage extends Schema.SingleType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      ['block.content-with-image', 'block.benefits', 'block.cta-card']
+      [
+        'block.content-with-image',
+        'block.benefits',
+        'block.cta-card',
+        'block.generic-heading-content'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

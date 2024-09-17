@@ -189,6 +189,8 @@ export interface BlockGenericHeadingContent extends Schema.Component {
     Images: Attribute.Component<'element.image-group', true>;
     unique_name: Attribute.String;
     bg_color: Attribute.String;
+    theme: Attribute.Enumeration<['dark', 'light']> &
+      Attribute.DefaultTo<'dark'>;
   };
 }
 

@@ -17,7 +17,8 @@
       "components": [
         "block.content-with-image",
         "block.benefits",
-        "block.cta-card"
+        "block.cta-card",
+        "block.generic-heading-content"
       ]
     }
   }
