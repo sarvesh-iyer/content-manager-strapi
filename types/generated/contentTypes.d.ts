@@ -997,7 +997,14 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      ['block.platform-hero', 'block.trusted-companies', 'block.key-features']
+      [
+        'block.platform-hero',
+        'block.trusted-companies',
+        'block.key-features',
+        'block.content-with-image',
+        'block.cta-card',
+        'block.generic-heading-content'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1102,6 +1109,38 @@ export interface ApiSiteSubmenuSiteSubmenu extends Schema.SingleType {
   };
 }
 
+export interface ApiSolutionsPageSolutionsPage extends Schema.CollectionType {
+  collectionName: 'solutions_pages';
+  info: {
+    singularName: 'solutions-page';
+    pluralName: 'solutions-pages';
+    displayName: 'Solutions page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Attribute.DynamicZone<
+      ['block.content-with-image', 'block.cta-card']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::solutions-page.solutions-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::solutions-page.solutions-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTechnologyPageTechnologyPage extends Schema.SingleType {
   collectionName: 'technology_pages';
   info: {
@@ -1115,7 +1154,12 @@ export interface ApiTechnologyPageTechnologyPage extends Schema.SingleType {
   };
   attributes: {
     blocks: Attribute.DynamicZone<
-      ['block.content-with-image', 'block.benefits', 'block.cta-card']
+      [
+        'block.content-with-image',
+        'block.benefits',
+        'block.cta-card',
+        'block.generic-heading-content'
+      ]
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1159,6 +1203,7 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::localization-language.localization-language': ApiLocalizationLanguageLocalizationLanguage;
       'api::site-submenu.site-submenu': ApiSiteSubmenuSiteSubmenu;
+      'api::solutions-page.solutions-page': ApiSolutionsPageSolutionsPage;
       'api::technology-page.technology-page': ApiTechnologyPageTechnologyPage;
     }
   }
