@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_block_career_forms",
+  "info": {
+    "displayName": "career-form",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "action_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "element.button"
+    },
+    "inputs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.input"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
