@@ -788,6 +788,55 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCareerCareer extends Schema.SingleType {
+  collectionName: 'careers';
+  info: {
+    singularName: 'career';
+    pluralName: 'careers';
+    displayName: 'Career-page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    blocks: Attribute.DynamicZone<
+      ['block.platform-hero', 'block.career-form', 'block.cta-card']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::career.career',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::career.career',
+      'oneToMany',
+      'api::career.career'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFeaturesPageFeaturesPage extends Schema.CollectionType {
   collectionName: 'features_pages';
   info: {
@@ -1197,6 +1246,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::career.career': ApiCareerCareer;
       'api::features-page.features-page': ApiFeaturesPageFeaturesPage;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;

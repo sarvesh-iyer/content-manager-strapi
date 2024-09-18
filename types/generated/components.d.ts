@@ -42,6 +42,35 @@ export interface ElementLanguage extends Schema.Component {
   };
 }
 
+export interface ElementInput extends Schema.Component {
+  collectionName: 'components_element_inputs';
+  info: {
+    displayName: 'Input';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    placeholder: Attribute.String;
+    type: Attribute.Enumeration<
+      [
+        'text',
+        'email',
+        'password',
+        'number',
+        'file',
+        'tel',
+        'url',
+        'reset',
+        'textarea'
+      ]
+    > &
+      Attribute.DefaultTo<'text'>;
+    is_optional: Attribute.Boolean & Attribute.DefaultTo<false>;
+    showCount: Attribute.Boolean & Attribute.DefaultTo<false>;
+    name: Attribute.String;
+  };
+}
+
 export interface ElementImageWithButtonCard extends Schema.Component {
   collectionName: 'components_block_image_with_button_cards';
   info: {
@@ -243,6 +272,19 @@ export interface BlockContentWithImage extends Schema.Component {
   };
 }
 
+export interface BlockCareerForm extends Schema.Component {
+  collectionName: 'components_block_career_forms';
+  info: {
+    displayName: 'career-form';
+    description: '';
+  };
+  attributes: {
+    action_button: Attribute.Component<'element.button'>;
+    inputs: Attribute.Component<'element.input', true>;
+    Image: Attribute.Media<'images'>;
+  };
+}
+
 export interface BlockBenefits extends Schema.Component {
   collectionName: 'components_block_benefits';
   info: {
@@ -261,6 +303,7 @@ declare module '@strapi/types' {
       'element.list-items': ElementListItems;
       'element.link': ElementLink;
       'element.language': ElementLanguage;
+      'element.input': ElementInput;
       'element.image-with-button-card': ElementImageWithButtonCard;
       'element.image-group': ElementImageGroup;
       'element.feature-card': ElementFeatureCard;
@@ -274,6 +317,7 @@ declare module '@strapi/types' {
       'block.feature-cards-group': BlockFeatureCardsGroup;
       'block.cta-card': BlockCtaCard;
       'block.content-with-image': BlockContentWithImage;
+      'block.career-form': BlockCareerForm;
       'block.benefits': BlockBenefits;
     }
   }
