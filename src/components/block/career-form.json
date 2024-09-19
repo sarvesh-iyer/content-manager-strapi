@@ -1,7 +1,7 @@
 {
   "collectionName": "components_block_career_forms",
   "info": {
-    "displayName": "career-form",
+    "displayName": "Form with content",
     "description": ""
   },
   "options": {},
@@ -17,11 +17,37 @@
       "component": "element.input"
     },
     "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.list-items"
+    },
+    "form_heading": {
+      "type": "string"
+    },
+    "form_name": {
+      "type": "string"
+    },
+    "form_position": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
       ],
-      "type": "media",
-      "multiple": false
+      "default": "left"
     }
   }
 }

@@ -19,6 +19,19 @@
         "option1",
         "option2"
       ]
+    },
+    "card_icon_shape": {
+      "type": "enumeration",
+      "enum": [
+        "50%",
+        "8px"
+      ]
+    },
+    "bg_color": {
+      "type": "string"
+    },
+    "card_color": {
+      "type": "string"
     }
   }
 }
