@@ -10,6 +10,7 @@ export interface ElementListItems extends Schema.Component {
     title: Attribute.String;
     content: Attribute.Text;
     link: Attribute.String;
+    icon: Attribute.Media<'images'>;
   };
 }
 
@@ -110,6 +111,7 @@ export interface ElementFeatureCard extends Schema.Component {
     Image: Attribute.Media<'images'>;
     color: Attribute.String;
     link: Attribute.String;
+    unique_name: Attribute.String;
   };
 }
 
@@ -232,6 +234,9 @@ export interface BlockFeatureCardsGroup extends Schema.Component {
     heading: Attribute.String;
     Cards: Attribute.Component<'element.image-with-button-card', true>;
     variant: Attribute.Enumeration<['option1', 'option2']>;
+    card_icon_shape: Attribute.Enumeration<['50%', '8px']>;
+    bg_color: Attribute.String;
+    card_color: Attribute.String;
   };
 }
 
@@ -275,13 +280,20 @@ export interface BlockContentWithImage extends Schema.Component {
 export interface BlockCareerForm extends Schema.Component {
   collectionName: 'components_block_career_forms';
   info: {
-    displayName: 'career-form';
+    displayName: 'Form with content';
     description: '';
   };
   attributes: {
     action_button: Attribute.Component<'element.button'>;
     inputs: Attribute.Component<'element.input', true>;
     Image: Attribute.Media<'images'>;
+    heading: Attribute.String;
+    description: Attribute.Text;
+    list: Attribute.Component<'element.list-items', true>;
+    form_heading: Attribute.String;
+    form_name: Attribute.String;
+    form_position: Attribute.Enumeration<['left', 'right']> &
+      Attribute.DefaultTo<'left'>;
   };
 }
 

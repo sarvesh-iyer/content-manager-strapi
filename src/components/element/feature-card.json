@@ -28,6 +28,9 @@
     },
     "link": {
       "type": "string"
+    },
+    "unique_name": {
+      "type": "string"
     }
   }
 }
