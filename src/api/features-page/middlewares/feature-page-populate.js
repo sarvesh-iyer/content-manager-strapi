@@ -24,6 +24,16 @@ const populate = {
 			Image: {
 				fields: ["name", "url", "alternativeText"],
 			},
+			Images: {
+				populate: {
+					Image: {
+						fields: ["name", "url", "alternativeText"]
+					}
+				}
+			},
+			Button: {
+				populate: "*"
+			},
 			List: {
 				populate: "*"
 			},

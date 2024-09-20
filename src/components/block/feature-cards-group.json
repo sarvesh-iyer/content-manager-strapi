@@ -17,7 +17,8 @@
       "type": "enumeration",
       "enum": [
         "option1",
-        "option2"
+        "option2",
+        "option3"
       ]
     },
     "card_icon_shape": {
@@ -31,6 +32,9 @@
       "type": "string"
     },
     "card_color": {
+      "type": "string"
+    },
+    "description": {
       "type": "string"
     }
   }

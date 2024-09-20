@@ -20,7 +20,8 @@
         "block.key-features",
         "block.content-with-image",
         "block.cta-card",
-        "block.generic-heading-content"
+        "block.generic-heading-content",
+        "block.feature-cards-group"
       ]
     }
   }

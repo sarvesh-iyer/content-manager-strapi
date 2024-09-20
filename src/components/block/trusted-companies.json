@@ -9,10 +9,23 @@
     "heading": {
       "type": "string"
     },
-    "companies": {
-      "type": "component",
-      "repeatable": true,
-      "component": "element.feature-card"
+    "trusted_companies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trusted-company.trusted-company"
+    },
+    "featured_ins": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::featured-in.featured-in"
+    },
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "trusted_companies",
+        "featured_ins"
+      ],
+      "default": "trusted_companies"
     }
   }
 }

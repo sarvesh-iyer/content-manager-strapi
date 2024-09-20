@@ -809,7 +809,9 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
       [
         'block.generic-heading-content',
         'block.cta-card',
-        'block.content-with-image'
+        'block.content-with-image',
+        'block.feature-cards-group',
+        'block.trusted-companies'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -924,6 +926,58 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
   };
 }
 
+export interface ApiFeaturedInFeaturedIn extends Schema.CollectionType {
+  collectionName: 'featured_ins';
+  info: {
+    singularName: 'featured-in';
+    pluralName: 'featured-ins';
+    displayName: 'Featured-in';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::featured-in.featured-in',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::featured-in.featured-in',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::featured-in.featured-in',
+      'oneToMany',
+      'api::featured-in.featured-in'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFeaturesPageFeaturesPage extends Schema.CollectionType {
   collectionName: 'features_pages';
   info: {
@@ -946,7 +1000,8 @@ export interface ApiFeaturesPageFeaturesPage extends Schema.CollectionType {
         'block.cta-card',
         'block.platform-hero',
         'block.content-with-image',
-        'block.feature-cards-group'
+        'block.feature-cards-group',
+        'block.generic-heading-content'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1139,7 +1194,8 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         'block.key-features',
         'block.content-with-image',
         'block.cta-card',
-        'block.generic-heading-content'
+        'block.generic-heading-content',
+        'block.feature-cards-group'
       ]
     >;
     createdAt: Attribute.DateTime;
@@ -1315,6 +1371,58 @@ export interface ApiTechnologyPageTechnologyPage extends Schema.SingleType {
   };
 }
 
+export interface ApiTrustedCompanyTrustedCompany extends Schema.CollectionType {
+  collectionName: 'trusted_companies';
+  info: {
+    singularName: 'trusted-company';
+    pluralName: 'trusted-companies';
+    displayName: 'Trusted-company';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trusted-company.trusted-company',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::trusted-company.trusted-company',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::trusted-company.trusted-company',
+      'oneToMany',
+      'api::trusted-company.trusted-company'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1336,6 +1444,7 @@ declare module '@strapi/types' {
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::career.career': ApiCareerCareer;
       'api::contact-page.contact-page': ApiContactPageContactPage;
+      'api::featured-in.featured-in': ApiFeaturedInFeaturedIn;
       'api::features-page.features-page': ApiFeaturesPageFeaturesPage;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
@@ -1344,6 +1453,7 @@ declare module '@strapi/types' {
       'api::site-submenu.site-submenu': ApiSiteSubmenuSiteSubmenu;
       'api::solutions-page.solutions-page': ApiSolutionsPageSolutionsPage;
       'api::technology-page.technology-page': ApiTechnologyPageTechnologyPage;
+      'api::trusted-company.trusted-company': ApiTrustedCompanyTrustedCompany;
     }
   }
 }

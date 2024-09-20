@@ -26,7 +26,9 @@
       "components": [
         "block.generic-heading-content",
         "block.cta-card",
-        "block.content-with-image"
+        "block.content-with-image",
+        "block.feature-cards-group",
+        "block.trusted-companies"
       ]
     }
   }
