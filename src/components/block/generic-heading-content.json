@@ -33,6 +33,11 @@
         "light"
       ],
       "default": "dark"
+    },
+    "Button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "element.button"
     }
   }
 }

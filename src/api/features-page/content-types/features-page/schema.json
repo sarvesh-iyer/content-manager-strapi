@@ -27,7 +27,8 @@
         "block.cta-card",
         "block.platform-hero",
         "block.content-with-image",
-        "block.feature-cards-group"
+        "block.feature-cards-group",
+        "block.generic-heading-content"
       ]
     },
     "page_name": {

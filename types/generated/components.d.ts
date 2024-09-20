@@ -84,6 +84,7 @@ export interface ElementImageWithButtonCard extends Schema.Component {
     Image: Attribute.Media<'images'>;
     Buttons: Attribute.Component<'element.button', true>;
     color: Attribute.String;
+    sub_heading: Attribute.String;
   };
 }
 
@@ -145,7 +146,18 @@ export interface BlockTrustedCompanies extends Schema.Component {
   };
   attributes: {
     heading: Attribute.String;
-    companies: Attribute.Component<'element.feature-card', true>;
+    trusted_companies: Attribute.Relation<
+      'block.trusted-companies',
+      'oneToMany',
+      'api::trusted-company.trusted-company'
+    >;
+    featured_ins: Attribute.Relation<
+      'block.trusted-companies',
+      'oneToMany',
+      'api::featured-in.featured-in'
+    >;
+    name: Attribute.Enumeration<['trusted_companies', 'featured_ins']> &
+      Attribute.DefaultTo<'trusted_companies'>;
   };
 }
 
@@ -222,6 +234,7 @@ export interface BlockGenericHeadingContent extends Schema.Component {
     bg_color: Attribute.String;
     theme: Attribute.Enumeration<['dark', 'light']> &
       Attribute.DefaultTo<'dark'>;
+    Button: Attribute.Component<'element.button'>;
   };
 }
 
@@ -233,10 +246,11 @@ export interface BlockFeatureCardsGroup extends Schema.Component {
   attributes: {
     heading: Attribute.String;
     Cards: Attribute.Component<'element.image-with-button-card', true>;
-    variant: Attribute.Enumeration<['option1', 'option2']>;
+    variant: Attribute.Enumeration<['option1', 'option2', 'option3']>;
     card_icon_shape: Attribute.Enumeration<['50%', '8px']>;
     bg_color: Attribute.String;
     card_color: Attribute.String;
+    description: Attribute.String;
   };
 }
 

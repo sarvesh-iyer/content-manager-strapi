@@ -44,6 +44,9 @@ module.exports = (config, { strapi }) => {
 						populate: {
 							Image: {
 								fields: ["name", "url", "alternativeText"],
+							},
+							Buttons: {
+								populate: "*"
 							}
 						}
 					},
@@ -53,7 +56,21 @@ module.exports = (config, { strapi }) => {
 								fields: ["name", "url", "alternativeText"],
 							},
 						}
-					}
+					},
+					trusted_companies: {
+						populate: {
+							Image: {
+								fields: ["name", "url", "alternativeText"],
+							},
+						}
+					},
+					featured_ins: {
+						populate: {
+							Image: {
+								fields: ["name", "url", "alternativeText"],
+							},
+						}
+					},
 				}
 			}
 		}
