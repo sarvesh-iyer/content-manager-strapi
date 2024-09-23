@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_element_add_on_cards",
+  "info": {
+    "displayName": "Add-on-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "add_on_name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "note": {
+      "type": "text"
+    },
+    "bg_color": {
+      "type": "enumeration",
+      "enum": [
+        "accent-blue",
+        "accent-green",
+        "accent-purple",
+        "accent-yellow",
+        "accent-orange"
+      ]
+    },
+    "add_on_services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::add-on-service.add-on-service"
+    }
+  }
+}

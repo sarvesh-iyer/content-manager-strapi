@@ -1,5 +1,29 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ElementPricingCard extends Schema.Component {
+  collectionName: 'components_element_pricing_cards';
+  info: {
+    displayName: 'Pricing-card';
+    description: '';
+  };
+  attributes: {
+    plan_name: Attribute.String;
+    price: Attribute.Integer;
+    price_note: Attribute.String;
+    action_button: Attribute.Component<'element.button'>;
+    trial_text: Attribute.String;
+    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
+    tag: Attribute.String;
+    icon: Attribute.Media<'images'>;
+    plan_note: Attribute.Text;
+    plan_services: Attribute.Relation<
+      'element.pricing-card',
+      'oneToMany',
+      'api::plan-service.plan-service'
+    >;
+  };
+}
+
 export interface ElementListItems extends Schema.Component {
   collectionName: 'components_element_list_items';
   info: {
@@ -138,6 +162,34 @@ export interface ElementButton extends Schema.Component {
   };
 }
 
+export interface ElementAddOnCard extends Schema.Component {
+  collectionName: 'components_element_add_on_cards';
+  info: {
+    displayName: 'Add-on-card';
+    description: '';
+  };
+  attributes: {
+    add_on_name: Attribute.String;
+    price: Attribute.Integer;
+    tag: Attribute.String;
+    note: Attribute.Text;
+    bg_color: Attribute.Enumeration<
+      [
+        'accent-blue',
+        'accent-green',
+        'accent-purple',
+        'accent-yellow',
+        'accent-orange'
+      ]
+    >;
+    add_on_services: Attribute.Relation<
+      'element.add-on-card',
+      'oneToMany',
+      'api::add-on-service.add-on-service'
+    >;
+  };
+}
+
 export interface BlockTrustedCompanies extends Schema.Component {
   collectionName: 'components_block_trusted_companies';
   info: {
@@ -202,6 +254,23 @@ export interface BlockPlatformHero extends Schema.Component {
     Cards: Attribute.Component<'element.feature-card', true>;
     bg_color: Attribute.String & Attribute.DefaultTo<'primary-bg-shade'>;
     unique_name: Attribute.String;
+  };
+}
+
+export interface BlockNoPlanCard extends Schema.Component {
+  collectionName: 'components_block_no_plan_cards';
+  info: {
+    displayName: 'No plan card';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String;
+    description: Attribute.Text;
+    list: Attribute.Component<'element.list-items', true>;
+    action_button: Attribute.Component<'element.button'>;
+    min_credit: Attribute.Integer & Attribute.DefaultTo<10000>;
+    max_credit: Attribute.Integer & Attribute.DefaultTo<30000>;
+    icon: Attribute.Media<'images'>;
   };
 }
 
@@ -323,9 +392,23 @@ export interface BlockBenefits extends Schema.Component {
   };
 }
 
+export interface BlockAddOnGroup extends Schema.Component {
+  collectionName: 'components_block_add_on_groups';
+  info: {
+    displayName: 'Add-on-group';
+  };
+  attributes: {
+    heading: Attribute.String;
+    description: Attribute.Text;
+    bg_color: Attribute.String;
+    cards: Attribute.Component<'element.add-on-card', true>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'element.pricing-card': ElementPricingCard;
       'element.list-items': ElementListItems;
       'element.link': ElementLink;
       'element.language': ElementLanguage;
@@ -334,10 +417,12 @@ declare module '@strapi/types' {
       'element.image-group': ElementImageGroup;
       'element.feature-card': ElementFeatureCard;
       'element.button': ElementButton;
+      'element.add-on-card': ElementAddOnCard;
       'block.trusted-companies': BlockTrustedCompanies;
       'block.solutions-submenu': BlockSolutionsSubmenu;
       'block.product-submenu': BlockProductSubmenu;
       'block.platform-hero': BlockPlatformHero;
+      'block.no-plan-card': BlockNoPlanCard;
       'block.key-features': BlockKeyFeatures;
       'block.generic-heading-content': BlockGenericHeadingContent;
       'block.feature-cards-group': BlockFeatureCardsGroup;
@@ -345,6 +430,7 @@ declare module '@strapi/types' {
       'block.content-with-image': BlockContentWithImage;
       'block.career-form': BlockCareerForm;
       'block.benefits': BlockBenefits;
+      'block.add-on-group': BlockAddOnGroup;
     }
   }
 }

@@ -843,6 +843,51 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiAddOnServiceAddOnService extends Schema.CollectionType {
+  collectionName: 'add_on_services';
+  info: {
+    singularName: 'add-on-service';
+    pluralName: 'add-on-services';
+    displayName: 'Add-on service';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    service: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::add-on-service.add-on-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::add-on-service.add-on-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::add-on-service.add-on-service',
+      'oneToMany',
+      'api::add-on-service.add-on-service'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiCareerCareer extends Schema.SingleType {
   collectionName: 'careers';
   info: {
@@ -1248,6 +1293,90 @@ export interface ApiLocalizationLanguageLocalizationLanguage
   };
 }
 
+export interface ApiPlanServicePlanService extends Schema.CollectionType {
+  collectionName: 'plan_services';
+  info: {
+    singularName: 'plan-service';
+    pluralName: 'plan-services';
+    displayName: 'Plan service';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    service_name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::plan-service.plan-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::plan-service.plan-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::plan-service.plan-service',
+      'oneToMany',
+      'api::plan-service.plan-service'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPricingPagePricingPage extends Schema.SingleType {
+  collectionName: 'pricing_pages';
+  info: {
+    singularName: 'pricing-page';
+    pluralName: 'pricing-pages';
+    displayName: 'Pricing page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blocks: Attribute.DynamicZone<
+      [
+        'block.platform-hero',
+        'block.cta-card',
+        'block.add-on-group',
+        'block.no-plan-card'
+      ]
+    >;
+    plan_cards: Attribute.Component<'element.pricing-card', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pricing-page.pricing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pricing-page.pricing-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSiteSubmenuSiteSubmenu extends Schema.SingleType {
   collectionName: 'site_submenus';
   info: {
@@ -1442,6 +1571,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::add-on-service.add-on-service': ApiAddOnServiceAddOnService;
       'api::career.career': ApiCareerCareer;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::featured-in.featured-in': ApiFeaturedInFeaturedIn;
@@ -1450,6 +1580,8 @@ declare module '@strapi/types' {
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::localization-language.localization-language': ApiLocalizationLanguageLocalizationLanguage;
+      'api::plan-service.plan-service': ApiPlanServicePlanService;
+      'api::pricing-page.pricing-page': ApiPricingPagePricingPage;
       'api::site-submenu.site-submenu': ApiSiteSubmenuSiteSubmenu;
       'api::solutions-page.solutions-page': ApiSolutionsPageSolutionsPage;
       'api::technology-page.technology-page': ApiTechnologyPageTechnologyPage;

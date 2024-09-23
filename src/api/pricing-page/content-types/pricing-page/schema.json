@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "pricing_pages",
+  "info": {
+    "singularName": "pricing-page",
+    "pluralName": "pricing-pages",
+    "displayName": "Pricing page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "block.platform-hero",
+        "block.cta-card",
+        "block.add-on-group",
+        "block.no-plan-card"
+      ]
+    },
+    "plan_cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.pricing-card"
+    }
+  }
+}
