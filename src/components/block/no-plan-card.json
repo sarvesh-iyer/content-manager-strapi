@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_block_no_plan_cards",
+  "info": {
+    "displayName": "No plan card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.list-items"
+    },
+    "action_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "element.button"
+    },
+    "min_credit": {
+      "type": "integer",
+      "default": 10000
+    },
+    "max_credit": {
+      "type": "integer",
+      "default": 30000
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

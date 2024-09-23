@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_block_add_on_groups",
+  "info": {
+    "displayName": "Add-on-group"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "bg_color": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.add-on-card"
+    }
+  }
+}
