@@ -1,5 +1,28 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ElementTitleWithList extends Schema.Component {
+  collectionName: 'components_element_title_with_lists';
+  info: {
+    displayName: 'title-with-list';
+  };
+  attributes: {
+    question: Attribute.Text;
+    answers: Attribute.Component<'element.list-items', true>;
+  };
+}
+
+export interface ElementSubscriptionType extends Schema.Component {
+  collectionName: 'components_element_subscription_types';
+  info: {
+    displayName: 'subscription_period';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    discount_text: Attribute.String;
+  };
+}
+
 export interface ElementPricingCard extends Schema.Component {
   collectionName: 'components_element_pricing_cards';
   info: {
@@ -254,6 +277,8 @@ export interface BlockPlatformHero extends Schema.Component {
     Cards: Attribute.Component<'element.feature-card', true>;
     bg_color: Attribute.String & Attribute.DefaultTo<'primary-bg-shade'>;
     unique_name: Attribute.String;
+    variant: Attribute.Enumeration<['dark', 'light', 'transparent']> &
+      Attribute.DefaultTo<'dark'>;
   };
 }
 
@@ -323,6 +348,20 @@ export interface BlockFeatureCardsGroup extends Schema.Component {
   };
 }
 
+export interface BlockFaq extends Schema.Component {
+  collectionName: 'components_block_faqs';
+  info: {
+    displayName: 'FAQ';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String;
+    sub_heading: Attribute.String;
+    action_button: Attribute.Component<'element.button'>;
+    question_answers: Attribute.Component<'element.title-with-list', true>;
+  };
+}
+
 export interface BlockCtaCard extends Schema.Component {
   collectionName: 'components_block_cta_cards';
   info: {
@@ -336,6 +375,25 @@ export interface BlockCtaCard extends Schema.Component {
     Description: Attribute.Text;
     variant: Attribute.Enumeration<['dark', 'light']> &
       Attribute.DefaultTo<'dark'>;
+  };
+}
+
+export interface BlockCreditsCalculationTable extends Schema.Component {
+  collectionName: 'components_block_credits_calculation_tables';
+  info: {
+    displayName: 'Credits calculation table';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.String;
+    sub_heading: Attribute.Text;
+    note_1: Attribute.Text;
+    note_2: Attribute.Text;
+    credits_calculations: Attribute.Relation<
+      'block.credits-calculation-table',
+      'oneToMany',
+      'api::credits-calculation.credits-calculation'
+    >;
   };
 }
 
@@ -408,6 +466,8 @@ export interface BlockAddOnGroup extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'element.title-with-list': ElementTitleWithList;
+      'element.subscription-type': ElementSubscriptionType;
       'element.pricing-card': ElementPricingCard;
       'element.list-items': ElementListItems;
       'element.link': ElementLink;
@@ -426,7 +486,9 @@ declare module '@strapi/types' {
       'block.key-features': BlockKeyFeatures;
       'block.generic-heading-content': BlockGenericHeadingContent;
       'block.feature-cards-group': BlockFeatureCardsGroup;
+      'block.faq': BlockFaq;
       'block.cta-card': BlockCtaCard;
+      'block.credits-calculation-table': BlockCreditsCalculationTable;
       'block.content-with-image': BlockContentWithImage;
       'block.career-form': BlockCareerForm;
       'block.benefits': BlockBenefits;

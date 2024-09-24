@@ -28,6 +28,15 @@
     },
     "unique_name": {
       "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "dark",
+        "light",
+        "transparent"
+      ],
+      "default": "dark"
     }
   }
 }

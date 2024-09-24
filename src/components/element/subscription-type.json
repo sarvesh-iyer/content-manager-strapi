@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_element_subscription_types",
+  "info": {
+    "displayName": "subscription_period",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "discount_text": {
+      "type": "string"
+    }
+  }
+}

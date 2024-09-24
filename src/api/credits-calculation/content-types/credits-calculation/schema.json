@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "credits_calculations",
+  "info": {
+    "singularName": "credits-calculation",
+    "pluralName": "credits-calculations",
+    "displayName": "Credits calculation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "type": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "unit": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "req_credits": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "row_type": {
+      "type": "enumeration",
+      "enum": [
+        "table-head",
+        "table-data"
+      ],
+      "default": "table-data",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

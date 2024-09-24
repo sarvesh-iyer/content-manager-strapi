@@ -971,6 +971,72 @@ export interface ApiContactPageContactPage extends Schema.SingleType {
   };
 }
 
+export interface ApiCreditsCalculationCreditsCalculation
+  extends Schema.CollectionType {
+  collectionName: 'credits_calculations';
+  info: {
+    singularName: 'credits-calculation';
+    pluralName: 'credits-calculations';
+    displayName: 'Credits calculation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    type: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    unit: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    req_credits: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    row_type: Attribute.Enumeration<['table-head', 'table-data']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'table-data'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::credits-calculation.credits-calculation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::credits-calculation.credits-calculation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::credits-calculation.credits-calculation',
+      'oneToMany',
+      'api::credits-calculation.credits-calculation'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFeaturedInFeaturedIn extends Schema.CollectionType {
   collectionName: 'featured_ins';
   info: {
@@ -1355,10 +1421,13 @@ export interface ApiPricingPagePricingPage extends Schema.SingleType {
         'block.platform-hero',
         'block.cta-card',
         'block.add-on-group',
-        'block.no-plan-card'
+        'block.no-plan-card',
+        'block.credits-calculation-table',
+        'block.faq'
       ]
     >;
     plan_cards: Attribute.Component<'element.pricing-card', true>;
+    subscription_period: Attribute.Component<'element.subscription-type', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1574,6 +1643,7 @@ declare module '@strapi/types' {
       'api::add-on-service.add-on-service': ApiAddOnServiceAddOnService;
       'api::career.career': ApiCareerCareer;
       'api::contact-page.contact-page': ApiContactPageContactPage;
+      'api::credits-calculation.credits-calculation': ApiCreditsCalculationCreditsCalculation;
       'api::featured-in.featured-in': ApiFeaturedInFeaturedIn;
       'api::features-page.features-page': ApiFeaturesPageFeaturesPage;
       'api::footer.footer': ApiFooterFooter;

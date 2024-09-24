@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_block_credits_calculation_tables",
+  "info": {
+    "displayName": "Credits calculation table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "sub_heading": {
+      "type": "text"
+    },
+    "note_1": {
+      "type": "text"
+    },
+    "note_2": {
+      "type": "text"
+    },
+    "credits_calculations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::credits-calculation.credits-calculation"
+    }
+  }
+}
