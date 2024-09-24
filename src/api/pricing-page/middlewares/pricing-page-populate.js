@@ -34,6 +34,11 @@ module.exports = (config, { strapi }) => {
 					},
 					credits_calculations: {
 						populate: "*"
+					},
+					icon: {
+						populate: {
+							fields: ["name", "url", "alternativeText"]
+						}
 					}
 				}
 			},
