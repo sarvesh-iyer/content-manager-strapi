@@ -18,13 +18,21 @@
         "block.platform-hero",
         "block.cta-card",
         "block.add-on-group",
-        "block.no-plan-card"
+        "block.no-plan-card",
+        "block.credits-calculation-table",
+        "block.faq"
       ]
     },
     "plan_cards": {
       "type": "component",
       "repeatable": true,
       "component": "element.pricing-card"
+    },
+    "subscription_period": {
+      "displayName": "subscription_type",
+      "type": "component",
+      "repeatable": true,
+      "component": "element.subscription-type"
     }
   }
 }

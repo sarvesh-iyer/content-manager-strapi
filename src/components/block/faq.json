@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_block_faqs",
+  "info": {
+    "displayName": "FAQ",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "sub_heading": {
+      "type": "string"
+    },
+    "action_button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "element.button"
+    },
+    "question_answers": {
+      "displayName": "title-with-list",
+      "type": "component",
+      "repeatable": true,
+      "component": "element.title-with-list"
+    }
+  }
+}

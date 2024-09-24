@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_element_title_with_lists",
+  "info": {
+    "displayName": "title-with-list"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "answers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.list-items"
+    }
+  }
+}

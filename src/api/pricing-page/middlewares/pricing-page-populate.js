@@ -22,6 +22,18 @@ module.exports = (config, { strapi }) => {
 					},
 					add_on_services: {
 						populate: "*"
+					},
+					action_button: {
+						populate: "*"
+					},
+					list: {
+						populate: "*"
+					},
+					question_answers: {
+						populate: "*"
+					},
+					credits_calculations: {
+						populate: "*"
 					}
 				}
 			},
@@ -37,6 +49,9 @@ module.exports = (config, { strapi }) => {
 						populate: "*"
 					}
 				}
+			},
+			subscription_period: {
+				populate: "*"
 			},
 			icon: {
 				fields: ["name", "url", "alternativeText"]
