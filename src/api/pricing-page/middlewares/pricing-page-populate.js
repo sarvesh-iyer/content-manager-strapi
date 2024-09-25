@@ -42,18 +42,14 @@ module.exports = (config, { strapi }) => {
 					}
 				}
 			},
-			plan_cards: {
-				populate: {
-					action_button: {
-						populate: "*"
-					},
-					icon: {
-						fields: ["name", "url", "alternativeText"]
-					},
-					plan_services: {
-						populate: "*"
-					}
-				}
+			subscription_plans: {
+				populate: "*"
+			},
+			all_subscription_plans: {
+				populate: "*"
+			},
+			plan_features: {
+				populate: "*"
 			},
 			subscription_period: {
 				populate: "*"

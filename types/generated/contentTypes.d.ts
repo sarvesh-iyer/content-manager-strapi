@@ -1359,6 +1359,80 @@ export interface ApiLocalizationLanguageLocalizationLanguage
   };
 }
 
+export interface ApiPlanFeatureComparisionPlanFeatureComparision
+  extends Schema.CollectionType {
+  collectionName: 'plan_feature_comparisions';
+  info: {
+    singularName: 'plan-feature-comparision';
+    pluralName: 'plan-feature-comparisions';
+    displayName: 'Plan feature comparision';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    feature_name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    payg: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    pro: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    business: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
+    enterprise: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::plan-feature-comparision.plan-feature-comparision',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::plan-feature-comparision.plan-feature-comparision',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::plan-feature-comparision.plan-feature-comparision',
+      'oneToMany',
+      'api::plan-feature-comparision.plan-feature-comparision'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPlanServicePlanService extends Schema.CollectionType {
   collectionName: 'plan_services';
   info: {
@@ -1426,8 +1500,23 @@ export interface ApiPricingPagePricingPage extends Schema.SingleType {
         'block.faq'
       ]
     >;
-    plan_cards: Attribute.Component<'element.pricing-card', true>;
     subscription_period: Attribute.Component<'element.subscription-type', true>;
+    subscription_plans: Attribute.Relation<
+      'api::pricing-page.pricing-page',
+      'oneToMany',
+      'api::subscription-plan.subscription-plan'
+    >;
+    plan_features: Attribute.Relation<
+      'api::pricing-page.pricing-page',
+      'oneToMany',
+      'api::plan-feature-comparision.plan-feature-comparision'
+    >;
+    plan_comparision_heading: Attribute.String;
+    all_subscription_plans: Attribute.Relation<
+      'api::pricing-page.pricing-page',
+      'oneToMany',
+      'api::subscription-plan.subscription-plan'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1528,6 +1617,113 @@ export interface ApiSolutionsPageSolutionsPage extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+  };
+}
+
+export interface ApiSubscriptionPlanSubscriptionPlan
+  extends Schema.CollectionType {
+  collectionName: 'subscription_plans';
+  info: {
+    singularName: 'subscription-plan';
+    pluralName: 'subscription-plans';
+    displayName: 'Subscription_plan';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    plan_name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    price: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    plan_note: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    price_note: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    trial_text: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    icon: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    isFeatured: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    feature_tag: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    action_button: Attribute.Component<'element.button'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    plan_services: Attribute.Relation<
+      'api::subscription-plan.subscription-plan',
+      'oneToMany',
+      'api::plan-service.plan-service'
+    >;
+    plan_note_2: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription-plan.subscription-plan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription-plan.subscription-plan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::subscription-plan.subscription-plan',
+      'oneToMany',
+      'api::subscription-plan.subscription-plan'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1650,10 +1846,12 @@ declare module '@strapi/types' {
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::localization-language.localization-language': ApiLocalizationLanguageLocalizationLanguage;
+      'api::plan-feature-comparision.plan-feature-comparision': ApiPlanFeatureComparisionPlanFeatureComparision;
       'api::plan-service.plan-service': ApiPlanServicePlanService;
       'api::pricing-page.pricing-page': ApiPricingPagePricingPage;
       'api::site-submenu.site-submenu': ApiSiteSubmenuSiteSubmenu;
       'api::solutions-page.solutions-page': ApiSolutionsPageSolutionsPage;
+      'api::subscription-plan.subscription-plan': ApiSubscriptionPlanSubscriptionPlan;
       'api::technology-page.technology-page': ApiTechnologyPageTechnologyPage;
       'api::trusted-company.trusted-company': ApiTrustedCompanyTrustedCompany;
     }

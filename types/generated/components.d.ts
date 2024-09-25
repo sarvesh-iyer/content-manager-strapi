@@ -23,30 +23,6 @@ export interface ElementSubscriptionType extends Schema.Component {
   };
 }
 
-export interface ElementPricingCard extends Schema.Component {
-  collectionName: 'components_element_pricing_cards';
-  info: {
-    displayName: 'Pricing-card';
-    description: '';
-  };
-  attributes: {
-    plan_name: Attribute.String;
-    price: Attribute.Integer;
-    price_note: Attribute.String;
-    action_button: Attribute.Component<'element.button'>;
-    trial_text: Attribute.String;
-    isFeatured: Attribute.Boolean & Attribute.DefaultTo<false>;
-    tag: Attribute.String;
-    icon: Attribute.Media<'images'>;
-    plan_note: Attribute.Text;
-    plan_services: Attribute.Relation<
-      'element.pricing-card',
-      'oneToMany',
-      'api::plan-service.plan-service'
-    >;
-  };
-}
-
 export interface ElementListItems extends Schema.Component {
   collectionName: 'components_element_list_items';
   info: {
@@ -468,7 +444,6 @@ declare module '@strapi/types' {
     export interface Components {
       'element.title-with-list': ElementTitleWithList;
       'element.subscription-type': ElementSubscriptionType;
-      'element.pricing-card': ElementPricingCard;
       'element.list-items': ElementListItems;
       'element.link': ElementLink;
       'element.language': ElementLanguage;

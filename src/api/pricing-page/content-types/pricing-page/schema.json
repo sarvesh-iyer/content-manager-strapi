@@ -23,16 +23,29 @@
         "block.faq"
       ]
     },
-    "plan_cards": {
-      "type": "component",
-      "repeatable": true,
-      "component": "element.pricing-card"
-    },
     "subscription_period": {
       "displayName": "subscription_type",
       "type": "component",
       "repeatable": true,
       "component": "element.subscription-type"
+    },
+    "subscription_plans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subscription-plan.subscription-plan"
+    },
+    "plan_features": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::plan-feature-comparision.plan-feature-comparision"
+    },
+    "plan_comparision_heading": {
+      "type": "string"
+    },
+    "all_subscription_plans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::subscription-plan.subscription-plan"
     }
   }
 }
