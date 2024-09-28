@@ -811,7 +811,8 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
         'block.cta-card',
         'block.content-with-image',
         'block.feature-cards-group',
-        'block.trusted-companies'
+        'block.trusted-companies',
+        'block.journey-timeline'
       ]
     > &
       Attribute.SetPluginOptions<{

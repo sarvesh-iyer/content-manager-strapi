@@ -289,6 +289,19 @@ export interface BlockKeyFeatures extends Schema.Component {
   };
 }
 
+export interface BlockJourneyTimeline extends Schema.Component {
+  collectionName: 'components_block_journey_timeline_s';
+  info: {
+    displayName: 'Journey timeline ';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.Text;
+    years: Attribute.Component<'element.list-items', true>;
+    cards: Attribute.Component<'element.feature-card', true>;
+  };
+}
+
 export interface BlockGenericHeadingContent extends Schema.Component {
   collectionName: 'components_block_generic_heading_contents';
   info: {
@@ -459,6 +472,7 @@ declare module '@strapi/types' {
       'block.platform-hero': BlockPlatformHero;
       'block.no-plan-card': BlockNoPlanCard;
       'block.key-features': BlockKeyFeatures;
+      'block.journey-timeline': BlockJourneyTimeline;
       'block.generic-heading-content': BlockGenericHeadingContent;
       'block.feature-cards-group': BlockFeatureCardsGroup;
       'block.faq': BlockFaq;

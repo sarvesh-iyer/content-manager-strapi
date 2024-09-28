@@ -33,6 +33,16 @@ module.exports = (config, { strapi }) => {
 								populate: "*"
 							}
 						}
+					},
+					years: {
+						populate: "*"
+					},
+					cards: {
+						populate: {
+							Image: {
+								fields: ["name", "url", "alternativeText"]
+							}
+						}
 					}
 				}
 			}

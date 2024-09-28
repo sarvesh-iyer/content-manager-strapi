@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_block_journey_timeline_s",
+  "info": {
+    "displayName": "Journey timeline ",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text"
+    },
+    "years": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.list-items"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.feature-card"
+    }
+  }
+}
