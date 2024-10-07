@@ -258,6 +258,22 @@ export interface BlockPlatformHero extends Schema.Component {
   };
 }
 
+export interface BlockPlanServiceGroup extends Schema.Component {
+  collectionName: 'components_block_plan_service_groups';
+  info: {
+    displayName: 'Plan service group';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    plan_feature_comparisions: Attribute.Relation<
+      'block.plan-service-group',
+      'oneToMany',
+      'api::plan-feature-comparision.plan-feature-comparision'
+    >;
+  };
+}
+
 export interface BlockNoPlanCard extends Schema.Component {
   collectionName: 'components_block_no_plan_cards';
   info: {
@@ -470,6 +486,7 @@ declare module '@strapi/types' {
       'block.solutions-submenu': BlockSolutionsSubmenu;
       'block.product-submenu': BlockProductSubmenu;
       'block.platform-hero': BlockPlatformHero;
+      'block.plan-service-group': BlockPlanServiceGroup;
       'block.no-plan-card': BlockNoPlanCard;
       'block.key-features': BlockKeyFeatures;
       'block.journey-timeline': BlockJourneyTimeline;

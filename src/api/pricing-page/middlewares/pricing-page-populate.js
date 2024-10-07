@@ -54,6 +54,9 @@ module.exports = (config, { strapi }) => {
 			subscription_period: {
 				populate: "*"
 			},
+			plan_service_group: {
+				populate: "*"
+			},
 			icon: {
 				fields: ["name", "url", "alternativeText"]
 			}

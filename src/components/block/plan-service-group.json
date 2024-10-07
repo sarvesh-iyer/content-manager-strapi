@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_plan_service_groups",
+  "info": {
+    "displayName": "Plan service group",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "plan_feature_comparisions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::plan-feature-comparision.plan-feature-comparision"
+    }
+  }
+}

@@ -1518,6 +1518,7 @@ export interface ApiPricingPagePricingPage extends Schema.SingleType {
       'oneToMany',
       'api::subscription-plan.subscription-plan'
     >;
+    plan_service_group: Attribute.Component<'block.plan-service-group', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

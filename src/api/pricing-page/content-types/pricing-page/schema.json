@@ -46,6 +46,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::subscription-plan.subscription-plan"
+    },
+    "plan_service_group": {
+      "displayName": "Plan service group",
+      "type": "component",
+      "repeatable": true,
+      "component": "block.plan-service-group"
     }
   }
 }
